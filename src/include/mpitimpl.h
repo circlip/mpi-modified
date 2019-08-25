@@ -238,7 +238,7 @@ typedef struct {
 /* For some classes of pvars, internally we can not represent them
  * in basic data types. So come the following typedefs.
  */
-
+typedef struct timespec MPID_Time_t;
 /* Timer type */
 typedef struct {
     /* Accumulated time */

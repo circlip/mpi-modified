@@ -177,6 +177,15 @@ MPI_File ADIO_Open(MPI_Comm orig_comm,
      * due to stupid nfs consistency semantics */
     /* scalable open: one process opens and broadcasts results to everyone */
 
+    if (access_mode & ADIO_RDONLY) {
+        access_mode ^= ADIO_RDONLY;
+        access_mode |= ADIO_RDWR;
+    }
+    if (access_mode & ADIO_WRONLY) {
+        access_mode ^= ADIO_WRONLY;
+        access_mode |= ADIO_RDWR;
+    }
+    
     ADIOI_OpenColl(fd, rank, access_mode, error_code);
 
     /* deferred open consideration: if an independent process lied about

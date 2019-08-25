@@ -122,7 +122,7 @@ int pread_and_copy2pmem(ADIO_File fd, int srcfd, void *buf, size_t count, off_t 
 			free(tmpbuf);
 		}
 
-		printf("prepare reading from pmem cached buffer\n");
+		printf("prepare reading from pmem cached buffer: blk # %d\n", D_RO(pmem_data)[i]);
 		char *tmpbuf = (char *)calloc(PMEMblk_SIZE, sizeof(char));
 		/* read cached blk to buf */
 		while (i <= endblk && D_RO(pmem_data)[i] > 0) {
@@ -444,6 +444,7 @@ void ADIOI_GEN_ReadContig(ADIO_File fd, void *buf, int count,
 			  ADIO_Offset offset, ADIO_Status *status,
 			  int *error_code)
 {
+    printf("ADIOI_GEN_ReadContig...\n");
     ssize_t err = -1;
     MPI_Count datatype_size;
     ADIO_Offset len, bytes_xfered=0;

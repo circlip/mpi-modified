@@ -458,7 +458,7 @@ int pwrite2pmem(ADIO_File fd, int srcfd, void *buf, size_t count, off_t offset) 
 	printf("pmem stat updated\n");
 
 
-    printf("++++++ write\n");
+    printf("++++++ write %ld\n", count);
 	return count;
 }
 /* TODO: modified above */

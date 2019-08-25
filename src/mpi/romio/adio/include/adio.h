@@ -210,6 +210,15 @@ typedef struct ADIOI_Hints_struct ADIOI_Hints;
 
 /* TODO: modified below */
 
+
+#define print1 printf("11111\n")
+#define print2 printf("22222\n")
+#define print3 printf("33333\n")
+#define print4 printf("44444\n")
+#define print5 printf("55555\n")
+#define print6 printf("66666\n")
+
+
 /* use to implement qsort */
 static inline int cmp_int(const void *a, const void *b) {
     return *(int *)a - *(int *)b;
